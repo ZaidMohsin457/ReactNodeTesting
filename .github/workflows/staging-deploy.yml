@@ -39,7 +39,7 @@ jobs:
       - name: Add STAGE host to known_hosts
         run: |
           mkdir -p "$HOME/.ssh"
-     	  ssh-keyscan -H "${{ secrets.EC2_STAGE_HOST }}" >> "$HOME/.ssh/known_hosts"
+          ssh-keyscan -H "${{ secrets.EC2_STAGE_HOST }}" >> "$HOME/.ssh/known_hosts"
 
       - name: Copy frontend build to STAGE server
         uses: appleboy/scp-action@v0.1.3
