@@ -47,8 +47,8 @@ jobs:
       - name: Add TEST host to known_hosts
         run: |
           mkdir -p "$HOME/.ssh"
-          ssh-keyscan -H "${{ secrets.EC2_TEST_HOST }}" >> ~/.ssh/known_hosts
-
+    	  ssh-keyscan -H "${{ secrets.EC2_TEST_HOST }}" >> "$HOME/.ssh/known_hosts"
+    
       - name: Copy frontend build to TEST server
         uses: appleboy/scp-action@v0.1.3
         with:
