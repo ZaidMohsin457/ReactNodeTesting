@@ -50,7 +50,7 @@ jobs:
           port: 22
           source: |
             build/*
-          target: /var/www/reactnodetesting
+          target: /home/ubuntu/ReactNodeTesting
 
       - name: Copy backend to STAGE server
         uses: appleboy/scp-action@v0.1.3
@@ -65,7 +65,7 @@ jobs:
             package-lock.json
             *.js
             *.json
-          target: /opt/reactnodetesting/backend
+          target: /home/ubuntu/ReactNodeTesting
 
       - name: Restart services on STAGE server
         uses: appleboy/ssh-action@v0.1.6
@@ -76,8 +76,8 @@ jobs:
           port: 22
           script: |
             set -e
-            cd /opt/reactnodetesting/backend || exit 0
-            npm ci || true
+            cd /home/ubuntu/ReactNodeTesting || exit 0
+            npm i || true
             if pm2 list | grep -q react-backend; then
               pm2 restart react-backend
             else
