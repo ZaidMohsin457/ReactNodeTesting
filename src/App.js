@@ -15,7 +15,7 @@ function App(props) {
   return (
     <>
       <div className="App">
-          <p data-testid="thanks_id">Thank you for shopping with us! Test1 Branch</p>
+          <p data-testid="thanks_id">Thank you for shopping with us! Test1 Branch commited to check Workflows</p>
           <CartView shippingCost={shippingCost} cartId={props.cartId} />
           <ShippingOptions onChangeValue={handleChangeValue} />
           <button onClick={() => setMsgYNModal({
